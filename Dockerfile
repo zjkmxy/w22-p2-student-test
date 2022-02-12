@@ -1,6 +1,9 @@
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
+LABEL org.opencontainers.image.source = "https://github.com/zjkmxy/w22-p2-student-test"
+LABEL org.opencontainers.image.authors = "Xinyu Ma"
+LABEL org.opencontainers.image.title = "CS 118 2022 Winter Proj 2 Autograder (for students)"
 
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends \
