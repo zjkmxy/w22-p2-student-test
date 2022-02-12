@@ -11,6 +11,8 @@ docker run --rm -it \
   ghcr.io/zjkmxy/w22-p2-student-test:latest
 ```
 
+3. The results will be put into `results/results.json`
+
 * It takes very long (> 5 min)
 * To run it on Windows, replace `${PWD}` with your Windows path.
   For example, `D:\\w22-p2-student-test\\submission` instead of `${PWD}/submission`.

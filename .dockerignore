@@ -5,6 +5,7 @@ autograder.zip
 absolute
 relative
 results
+submission
 testing
 Terminal Saved Output.txt
 .vscode/
@@ -12,4 +13,3 @@ Terminal Saved Output.txt
 .DS_Store
 *~
 ._*
-
