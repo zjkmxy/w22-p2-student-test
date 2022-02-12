@@ -1,0 +1,15 @@
+*.o
+*.dSYM
+autograder.zip
+*.pyc
+absolute
+relative
+results
+testing
+Terminal Saved Output.txt
+.vscode/
+.git
+.DS_Store
+*~
+._*
+

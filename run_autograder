@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -x
+
+# Load .env file
+sed -E -n 's/[^#]+/export &/ p' .env > tempenv.sh
+source tempenv.sh
+rm tempenv.sh
+
+# Prepare student submission
+ls -alh $SUBMISSION
+cd $SUBMISSION
+if [ -f ./*.tar.gz ]
+then
+    export STUDENT=$(ls ./*.tar.gz | xargs basename -s .tar.gz)
+
+    tar zxf "$STUDENT.tar.gz"
+    if [[ $? != 0 ]]; then
+        # There was a stupid bug in the Makefile... :(
+        tar xf "$STUDENT.tar.gz"
+    fi
+    rm "$STUDENT.tar.gz"
+    ls -alh
+fi
+
+# Show README
+cat README.md
+
+# Build code
+make
+
+cat /dev/urandom | head -c 12345  > $FILE_10k
+cat /dev/urandom | head -c 182810 > $FILE_1M
+cat /dev/urandom | head -c 973159 > $FILE_10M
+
+cat /dev/urandom | head -c 12341  > ${FILE_10k}_1
+cat /dev/urandom | head -c 12342  > ${FILE_10k}_2
+cat /dev/urandom | head -c 12343  > ${FILE_10k}_3
+cat /dev/urandom | head -c 12344  > ${FILE_10k}_4
+cat /dev/urandom | head -c 12345  > ${FILE_10k}_5
+cat /dev/urandom | head -c 12346  > ${FILE_10k}_6
+cat /dev/urandom | head -c 12347  > ${FILE_10k}_7
+cat /dev/urandom | head -c 12348  > ${FILE_10k}_8
+cat /dev/urandom | head -c 12349  > ${FILE_10k}_9
+cat /dev/urandom | head -c 12350  > ${FILE_10k}_10
+
+mkdir $TESTING
+cd $TESTING
+
+python3 $SOURCE/run_tests.py > $RESULTS/results.json
+
+ls -alh .
+
+cat $RESULTS/results.json

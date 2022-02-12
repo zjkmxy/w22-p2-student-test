@@ -1,0 +1,13 @@
+*.o
+*.dSYM
+*.pyc
+.DS_Store
+*._*
+*~
+__pycache__/
+*.py[cod]
+*$py.class
+Terminal Saved Output.txt
+file_*
+testing/
+.vscode/
