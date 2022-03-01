@@ -30,6 +30,6 @@ RUN ln -s /autograder/source/run_autograder /autograder/run_autograder && ln -s 
 
 RUN bash /autograder/source/setup.sh
 
-VOLUME [/autograder/submission, /autograder/results]
+VOLUME ["/autograder/submission", "/autograder/results"]
 WORKDIR /autograder
 CMD /autograder/run_autograder
